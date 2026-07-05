@@ -3,60 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แบบทดสอบจิตวิทยาวิเคราะห์ตัวตนขั้นลึกซึ้ง</title>
+    <title>แบบวิเคราะห์บุคลิกภาพเชิงลึก 10 มิติ (เวอร์ชันกวนประสาท)</title>
     <style>
         :root {
-            --bg-color: #0b0713;
-            --card-bg: rgba(23, 15, 38, 0.85);
-            --primary: #ff2a74;
-            --secondary: #8a2be2;
-            --text: #ffffff;
-            --text-muted: #a093b1;
+            --bg-color: #0c0817;
+            --card-bg: rgba(23, 16, 38, 0.93);
+            --primary: #ff2a6d;
+            --secondary: #05d9e8;
+            --text: #f1ecf6;
+            --text-muted: #7b728c;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         body {
-            background: radial-gradient(circle at center, #1f1135 0%, var(--bg-color) 100%);
+            background: linear-gradient(135deg, #140d26 0%, var(--bg-color) 100%);
             color: var(--text);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            overflow-x: hidden;
         }
 
         .container {
             background: var(--card-bg);
-            border: 1px solid rgba(255, 42, 116, 0.2);
-            border-radius: 20px;
+            border: 1px solid rgba(255, 42, 109, 0.2);
+            border-radius: 24px;
             padding: 40px;
             width: 100%;
             max-width: 600px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(138, 43, 226, 0.1);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 40px rgba(5, 217, 232, 0.05);
+            backdrop-filter: blur(15px);
             text-align: center;
-            transition: all 0.5s ease;
         }
 
         h1 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-            text-shadow: 0 0 10px rgba(255, 42, 116, 0.5);
-            letter-spacing: 1px;
+            font-size: 1.7rem;
+            margin-bottom: 8px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 42, 109, 0.3);
         }
 
         .subtitle {
             color: var(--text-muted);
             font-size: 0.9rem;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .quiz-box {
@@ -65,97 +62,108 @@
 
         .quiz-box.active {
             display: block;
-            animation: fadeIn 0.5s ease-in-out;
+            animation: cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards;
         }
 
         .question {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             margin-bottom: 25px;
-            line-height: 1.5;
+            line-height: 1.6;
             font-weight: 600;
+            text-align: left;
+            color: #fff;
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
         }
 
         .options-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
         .option-btn {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px 20px;
-            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 16px 20px;
+            border-radius: 14px;
             color: var(--text);
             cursor: pointer;
             text-align: left;
-            font-size: 1rem;
-            transition: all 0.25s ease;
-            position: relative;
-            overflow: hidden;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            transition: all 0.2s ease;
         }
 
         .option-btn:hover {
-            background: linear-gradient(90deg, rgba(255, 42, 116, 0.15), rgba(138, 43, 226, 0.15));
-            border-color: var(--primary);
+            background: linear-gradient(90deg, rgba(255, 42, 109, 0.1), rgba(5, 217, 232, 0.1));
+            border-color: var(--secondary);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 42, 116, 0.1);
+            box-shadow: 0 5px 15px rgba(5, 217, 232, 0.1);
         }
 
         .btn-start {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary), #b000ff);
             border: none;
-            padding: 15px 40px;
+            padding: 16px 45px;
             color: white;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             border-radius: 30px;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(255, 42, 116, 0.4);
-            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 42, 109, 0.4);
+            transition: all 0.2s ease;
         }
 
         .btn-start:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(255, 42, 116, 0.6);
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(255, 42, 109, 0.6);
         }
 
-        /* Loading Screen */
         .loader {
             display: none;
-            border: 4px solid rgba(255,255,255,0.1);
+            border: 3px solid rgba(255,255,255,0.05);
             border-radius: 50%;
-            border-top: 4px solid var(--primary);
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
+            border-top: 3px solid var(--primary);
+            width: 45px;
+            height: 45px;
+            animation: spin 0.8s linear infinite;
             margin: 30px auto;
         }
 
-        /* Result Area */
+        .result-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(255, 42, 109, 0.15);
+            border: 1px solid rgba(255, 42, 109, 0.4);
+            border-radius: 20px;
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
         .result-title {
-            font-size: 2.5rem;
-            color: #ff0055;
-            margin: 20px 0;
-            text-shadow: 0 0 20px rgba(255, 0, 85, 0.6);
+            font-size: 2.3rem;
+            margin-bottom: 25px;
             font-weight: 800;
+            background: linear-gradient(to right, #ff2a6d, #05d9e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .result-desc {
             color: var(--text);
-            line-height: 1.6;
-            margin-bottom: 25px;
+            line-height: 1.75;
+            margin-bottom: 30px;
             text-align: left;
-            background: rgba(0,0,0,0.3);
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
         }
 
         @keyframes spin {
@@ -166,75 +174,123 @@
 </head>
 <body>
 
-<div class="container" id="main-card">
+<div class="container">
     <div id="start-screen" class="quiz-box active">
-        <h1>Advanced Psychoanalytical Profile</h1>
-        <p class="subtitle">แบบทดสอบจิตวิทยาขั้นสูงเพื่อค้นหาศักยภาพแห่งสภาวะผู้นำและผู้ตามในระดับจิตใต้สำนึก</p>
-        <p style="margin-bottom: 30px; color: var(--text-muted); font-size: 0.95rem;">
-            *กรุณาตอบตามความเป็นจริง ระบบใช้ระบบ AI จิตเวชในการประมวลผล ห้ามโกหกตัวเอง
-        </p>
-        <button class="btn-start" onclick="startQuiz()">เริ่มการวิเคราะห์</button>
+        <h1>Psychological Profiler v2.0</h1>
+        <p class="subtitle">แบบทดสอบวัดระดับจิตใต้สำนึก 10 ข้อ เพื่อค้นหาตำแหน่งที่แท้จริงของคุณในห่วงโซ่อาหาร</p>
+        <button class="btn-start" onclick="startQuiz()">เริ่มทำแบบทดสอบ</button>
     </div>
 
     <div id="question-screen" class="quiz-box">
-        <p class="subtitle" id="progress">ข้อที่ 1 จาก 4</p>
-        <div class="question" id="question-text">คำถามกำลังโหลด...</div>
-        <div class="options-list" id="options-container">
-            </div>
+        <p class="subtitle" id="progress">ข้อที่ 1 จาก 10</p>
+        <div class="question" id="question-text">คำถาม</div>
+        <div class="options-list" id="options-container"></div>
     </div>
 
     <div id="loading-screen" class="quiz-box">
-        <h1>กำลังคำนวณกราฟิกจิตวิทยา...</h1>
-        <p class="subtitle">ระบบกำลังวิเคราะห์คลื่นสมอง อัตราการเต้นของหัวใจ และเคมีในกระแสเลือดผ่านพฤติกรรมการกด</p>
-        <div class="loader"></div>
+        <h1>กำลังตรวจสอบทัศนคติ...</h1>
+        <p class="subtitle">กรุณารอสักครู่ ระบบกำลังพยายามทำความเข้าใจตรรกะอันย้อนแย้งของคุณ</p>
+        <div class="loader" style="display: block;"></div>
     </div>
 
     <div id="result-screen" class="quiz-box">
-        <p class="subtitle">ผลการวิเคราะห์ระดับลึกเสร็จสิ้น</p>
-        <div style="font-size: 0.9rem; color: var(--text-muted);">สภาวะทางจิตวิญญาณของคุณคือ</div>
-        <div class="result-title">PURE UKE (เคะบริสุทธิ์ 100%)</div>
-        <div class="result-desc" id="result-text">
-            </div>
-        <button class="btn-start" onclick="location.reload()">ทำใหม่ (ก็เคะเหมือนเดิมแหละ)</button>
+        <div class="result-badge">FINAL ANALYSIS</div>
+        <div class="result-title">PURE UKE (เคะแท้ 100%)</div>
+        <div class="result-desc" id="result-text"></div>
+        <button class="btn-start" onclick="location.reload()">ลองใหม่ (กดอีกร้อยรอบก็ผลเดิม)</button>
     </div>
 </div>
 
 <script>
     const questions = [
         {
-            q: "1. หากคุณกำลังเดินอยู่ในซอยเปลี่ยวตอนกลางคืน แล้วมีคนร้ายรูปร่างกำยำเดินเข้ามาประชิดตัวพร้อมอาวุธ คุณจะเลือกทำสิ่งใดเป็นอย่างแรก?",
+            q: "1. ในร้านหมูกระทะ สามชั้นชิ้นที่เกรียมกำลังดีชิ้นสุดท้ายกำลังจะสุก แต่จู่ๆ มีมือดีคีบตัดหน้าคุณไปต่อหน้าต่อตา คุณจะทำอย่างไร?",
             a: [
-                "ตั้งการ์ด มวยไทยโบราณ เตรียมสวนกลับด้วยการสับศอกซ้าย",
-                "จ้องตาคนร้ายด้วยความเย็นชา แล้วพูดว่า 'แกเลือกผิดคนแล้ว'",
-                "วิ่งหนีสุดชีวิตพร้อมโกนขอความช่วยเหลือ",
-                "แกล้งเป็นลมล้มพับไปต่อหน้าต่อตา เผื่อเขาจะสงสาร"
+                "จ้องหน้ามันด้วยสายตาฆาตกร แล้วแอบเอาพริกกระเทียมในถ้วยน้ำจิ้มสาดใส่เบ้าตามัน",
+                "กระชากตะเกียบคืนมา ยัดสามชั้นเข้าปากตัวเองแล้วเคี้ยวโชว์หน้ากวนๆ",
+                "เบะปาก น้ำตาคลอเบาๆ แล้วอุทานอ่อยๆ 'เธอทำแบบนี้กับเราได้ยังไง...'",
+                "ประชดด้วยการสั่งเบคอนมาอีก 10 ถาด นั่งกินคนเดียวเงียบๆ ประหนึ่งผู้ชนะ"
             ]
         },
         {
-            q: "2. คุณได้รับเลือกให้เป็นกัปตันยานอวกาศที่ต้องไปสำรวจดาวดวงใหม่ แต่จู่ๆ ระบบขับเคลื่อนเกิดพังและยานกำลังจะระเบิดใน 30 วินาที คุณจะทำอย่างไร?",
+            q: "2. คุณเดินสะดุดยอดหญ้าล้มหน้าคว่ำกลางห้างดัง คนหันมามองทั้งชั้น คุณจะแก้สถานการณ์นี้อย่างไรให้เนียนที่สุด?",
             a: [
-                "สละยานคนสุดท้าย หลังจากส่งลูกเรือทุกคนเข้าแคปซูลนิรภัยหมดแล้ว",
-                "ใช้สมองอันอัจฉริยะ ซ่อมแผงวงจรด้วยมือเปล่าภายใน 10 วินาที",
-                "นั่งกุมขมับ ร้องไห้กระซิกๆ แล้วอุทานว่า 'ไม่นะ... ใครก็ได้ช่วยฉันที'",
-                "สวดมนต์แผ่เมตตาให้ดวงดาวรอบข้าง"
+                "รีบลุกขึ้นมาทำท่าเต้นบีบอยหรือวิดพื้นทันที เพื่อให้คนคิดว่า 'อ๋อ กูตั้งใจ'",
+                "นอนนิ่งๆ แกล้งตาย ตะโกนเบาๆ ว่า 'ใครก็ได้เรียกปอเต็กตึ๊งที...'",
+                "นั่งแหมะอยู่กับพื้น แหงนหน้ามองเพดานทำเอ็มวีเพลงเศร้า รอคนใจดีมาช่วยพยุง",
+                "ทุบพื้นหนึ่งทีแล้วตะโกนด่า 'พื้นห้างนี้มันทำมาจากอะไร! ลบหลู่เกียรติยศกูเกินไปแล้ว!'"
             ]
         },
         {
-            q: "3. ในงานปาร์ตี้ระดับหรู มีคนเดินมาชนคุณจนไวน์แดงหกเลอะเสื้อเชิ้ตสีขาวตัวโปรดของคุณเต็มไปหมด คู่กรณีทำท่าทางยโสโอหังใส่ คุณจะจัดการอย่างไร?",
+            q: "3. มีคนเดินมาทักคุณว่า 'ช่วงนี้ดูอ้วนขึ้นป่ะเนี่ย?' ทั้งที่คุณเพิ่งอดข้าวประชดชีวิตมา 3 วันเต็ม คุณจะสวนกลับว่าอะไร?",
             a: [
-                "กระชากคอเสื้อขึ้นมา แล้วบอกให้เขาคุกเข่าขอโทษเดี๋ยวนี้",
-                "ยิ้มเหี้ยม ยื่นบัตรเครดิตแบล็คการ์ดให้ แล้วบอกว่า 'ซื้อร้านนี้ให้ฉันซะ'",
-                "หน้าแดงด้วยความโกรธ ตัวสั่นระริก ตาเริ่มมีน้ำตาคลอแต่พยายามสะกดกลั้นไว้",
-                "ไม่เป็นไรครับ... เดี๋ยวผมไปซักเองในห้องน้ำก็ได้ (เสียงอ่อย)"
+                "ยิ้มหวานแล้วตอบว่า 'อ้วนขึ้นแต่ก็หนักหัวเธอนะจ๊ะ คริคริ'",
+                "วิ่งไปส่องกระจก ร้องกรี๊ดเบาๆ แล้วทำเสียงอ้อน 'อ้วนแล้ว... เธอไม่รักเหรอ?'",
+                "ต่อยกำแพงโชว์ความดิบ 'นี่มันกล้ามเนื้อเฟ้ย! อ้วนบ้านแกดิ!'",
+                "ไม่พูดอะไร แต่เดินไปซื้อชานมไข่มุกหวานร้อยเปอร์เซ็นต์มากินประชดคำพูดมัน"
             ]
         },
         {
-            q: "4. สมมติว่าคุณแข็งแกร่งที่สุดในโลกและได้เป็น 'ราชาไร้พ่าย' สิ่งแรกที่คุณอยากจะสั่งการคืออะไร?",
+            q: "4. สมมติว่าคุณโดนลักพาตัวไปเรียกค่าไถ่ โจรใจดีให้คุณโทรหาคนสนิทเพื่อขอเงิน 10 ล้าน สิ่งแรกที่คุณจะพูดในสายคืออะไร?",
             a: [
-                "สั่งจัดทัพไปตีเมืองรอบข้างเพื่อขยายอำนาจให้เกรียงไกร",
-                "สร้างกฎหมายใหม่ที่ยุติธรรม เพื่อปกป้องคนอ่อนแอทุกคน",
-                "สั่งให้มีคนมาคอยอุ้ม คอยป้อนข้าวป้อนน้ำ คอยดูแลตอนนอน เพราะขี้เกียจขยับตัว",
-                "ประกาศเกษียณอายุทันที แล้วไปนั่งรอให้คนอื่นมาออดอ้อน"
+                "ฮัลโหล... มารับหน่อยดิ๊ โดนหมาจับตัวมาเนี่ย น่ารำคาญชะมัด",
+                "โอนมาด่วน 10 ล้าน! ไม่งั้นไอ้โจรพวกนี้จะโดนฉันฆ่าตายก่อน!",
+                "ฮือออ มารับเค้าหน่อย โจรมันน่ากลัวมาก ข้าวผัดโอเลี้ยงที่นี่ก็ไม่อร่อยเลยยย",
+                "บอกโจรว่าขอสายคุยกับแม่โจรหน่อย จะฟ้องว่าลูกชายแม่ทำตัวนิสัยไม่ดี"
+            ]
+        },
+        {
+            q: "5. คุณอยู่ในลิฟต์สุดหรูกับคนที่แอบชอบกันมานาน บรรยากาศเงียบสงบ แต่จู่ๆ คุณเผลอตดเสียงดัง 'ปรี๊ดดด!' แบบห้ามไม่ได้ คุณจะทำยังไง?",
+            a: [
+                "หันไปมองหน้าคนที่แอบชอบแล้วทำตาโต ตะโกนว่า 'เห้ย! เธอตดอ๋อ สารภาพมานะ!'",
+                "แกล้งทำเป็นหงายท้องหมดสติทันทีเพื่อหนีความจริง",
+                "ยิ้มกรุ้มกริ่มแล้วพูดเสียงหล่อ 'กลิ่นความรักของฉันเองแหละเธอ... บ่มไว้นาน'",
+                "ก้มหน้าหน้าแดงจนถึงคอ แอบร้องไห้เงียบๆ แล้วรีบกดออกชั้นถัดไปทันที"
+            ]
+        },
+        {
+            q: "6. เดินซุ่มซ่ามไปชนนักเลงตัวใหญ่จนเสื้อวินมอเตอร์ไซค์เขาขาดรุ่ย เขาหันมาถลึงตาใส่พร้อมง้างหมัด คุณจะรับมือยังไง?",
+            a: [
+                "ตะโกนใส่ 'มองหน้าทำไม! อยากเสื้อขาดเพิ่มอีกข้างไหมล่ะ!?' (แต่ขาเริ่มสั่น)",
+                "ทรุดเข่าลงกราบเบญจางคประดิษฐ์แทบเท้าขอลดหย่อนผ่อนโทษ",
+                "ทำหน้าเบะปากใส่แล้วพูดว่า 'เสื้อเก่าขนาดนี้หนูซื้อตัวใหม่ให้ก็ได้ป่ะ! อย่ามาดุนะ!'",
+                "ยืนนิ่งเป็นหิน หลับตาปี๋ แล้วตั้งจิตสวดมนต์แผ่เมตตาให้เจ้ากรรมนายเวร"
+            ]
+        },
+        {
+            q: "7. ไปเดทแรกกับคนที่คุยมาปีครึ่ง กินหรูอลังการ เช็กบิลมาหมื่นห้า เพิ่งรู้ตัวว่าลืมกระเป๋าตังค์และมือถือแบตหมด!",
+            a: [
+                "ทำเนียนบอกขอตัวไปเข้าห้องน้ำ แล้วปีนหน้าต่างร้านวิ่งหนีเอาตัวรอดคนเดียว",
+                "หันไปส่งสายตาปิ๊ง ๆ ลูบแขนอีกฝ่ายแล้วพูดเสียงหวาน 'วันนี้เปย์เค้าหน่อยน้าา คริคริ'",
+                "หันไปบอกพนักงานร้านด้วยน้ำตาคลอเบาๆ 'ขอผมล้างจานชดใช้กรรมสัก 3 เดือนได้ไหมครับ'",
+                "แกล้งทำเป็นโวยวายทุบโต๊ะ 'เห้ย! นี่มันแบล็กการ์ดปลอมนี่นา! ร้านแกแกงฉันแน่ๆ!'"
+            ]
+        },
+        {
+            q: "8. โดนหัวหน้างานหรืออาจารย์เรียกไปด่าชุดใหญ่ไฟกระพริบต่อหน้าคนทั้งแผนก ทั้งที่คุณไม่ได้ทำอะไรผิดเลยสักนิด",
+            a: [
+                "ทุบโต๊ะประกาศลาออก/ซิ่วเสียงดังปัง! แล้วเดินสะดุดสายไฟล้มคว่ำตอนกำลังจะเดินออกจากห้อง",
+                "ยืนก้มหน้า บีบน้ำตาให้ออกมาไหลอาบแก้มเพื่อเรียกความสงสารจากเพื่อนร่วมงาน",
+                "เถียงกลับฉอด ๆ ๆ ด้วยเหตุผลวิบัติขั้นสุด เอาให้งงกันไปทั้งแถบ",
+                "พยักหน้ารับรัวๆ แต่จิตหลุดลอยไปคิดเรื่องเย็นนี้จะสั่งชาบูร้านไหนดี"
+            ]
+        },
+        {
+            q: "9. นอนโรงแรมต่างจังหวัดตอนตี 3 แล้วมีผีหัวขาดมานั่งปลายเตียง ชวนคุณคุยเรื่องปัญหาสังคมและการเมือง คุณจะทำยังไง?",
+            a: [
+                "ลุกขึ้นมาสวดมนต์แร็พพ่นไฟใส่ผีแบบสับๆ เอาให้ผีต้องร้องขอชีวิต",
+                "คลุมโปง มุดเข้าใต้ผ้าห่ม ร้องไห้กระซิกๆ เรียกหาแม่",
+                "นิ่งตั้งสติ แล้วลุกขึ้นมานั่งวิเคราะห์นโยบายรัฐบาลแข่งกับผีจนถึงเช้า",
+                "ยื่นหมอนให้อีกใบแล้วบอกผีว่า 'มานอนนี่มา ตรงนั้นมันหนาว ลุกคุยมันเมื่อยขา'"
+            ]
+        },
+        {
+            q: "10. ข้อสุดท้าย... มีคนหน้าตาดีระดับดาราฮอลลีวูดมาคุกเข่าสารภาพรักกับคุณกลางสยามสแควร์ คนรุมดูเป็นร้อย!",
+            a: [
+                "ตบหน้าตัวเองหนึ่งทีนึกว่าฝันไป แล้วรีบเซย์เยสตอบตกลงแบบตัวสั่นพั่บๆ",
+                "กอดอก สะบัดบ๊อบใส่ 'หึ หน้าตาแบบนี้ยังไม่ผ่านเกณฑ์ย่ะ!' (แต่ในใจกรี๊ดสลบไปแล้ว)",
+                "เขินจนหน้าแดงระเบิดตัวเอง กรีดร้องแล้ววิ่งหนีไปชนเสาไฟเต็มแรง",
+                "ควักเอกสารสัญญาทาสออกจากกระเป๋า ยื่นให้อีกฝ่ายเซ็นยินยอมเป็นคนใช้ส่วนตัวทันที"
             ]
         }
     ];
@@ -255,11 +311,14 @@
             const optionsContainer = document.getElementById('options-container');
             optionsContainer.innerHTML = '';
             
-            questions[currentQuestion].a.forEach((option, index) => {
+            questions[currentQuestion].a.forEach((option) => {
                 const btn = document.createElement('button');
                 btn.className = 'option-btn';
                 btn.innerText = option;
-                btn.onclick = () => nextQuestion(index);
+                btn.onclick = () => {
+                    currentQuestion++;
+                    showQuestion();
+                };
                 optionsContainer.appendChild(btn);
             });
         } else {
@@ -267,37 +326,28 @@
         }
     }
 
-    function nextQuestion(selectedIndex) {
-        // บันทึกคำตอบ? ไม่จำเป็นหรอก เพราะเราล็อกผลไว้แล้วคริๆ
-        currentQuestion++;
-        showQuestion();
-    }
-
     function showLoading() {
         document.getElementById('question-screen').classList.remove('active');
         const loading = document.getElementById('loading-screen');
         loading.style.display = 'block';
         
-        // หมุนๆ หลอกๆ สัก 2.5 วินาทีให้ดูขลัง
         setTimeout(() => {
             loading.style.display = 'none';
             showResult();
-        }, 2500);
+        }, 2000);
     }
 
     function showResult() {
         const resultScreen = document.getElementById('result-screen');
         const resultText = document.getElementById('result-text');
         
-        // ข้อความด่าแบบจิตวิทยาตลบหลังกวนประสาท
         resultText.innerHTML = `
-            <strong>วิเคราะห์จากฐานข้อมูลจิตใต้สำนึก:</strong><br><br>
-            จากการประมวลผลพฤติกรรมการตอบคำถามของคุณอย่างละเอียด... <br><br>
-            ต่อให้ในข้อ 1-3 คุณจะพยายามเลือกข้อที่ดู <strong>"โหด ถ่อย ดิบ เถื่อน หรือแมนแฮนซั่ม"</strong> แค่ไหนก็ตาม แต่นั่นเป็นเพียงกลไกการป้องกันตัวเองทางจิตวิทยา (Defense Mechanism) ที่สมองสร้างขึ้นมาเพื่อ <strong>"ปกปิดความอ่อนแอในส่วนลึก"</strong> เท่านั้น!<br><br>
-            • ท่าทางสับศอกซ้ายหรือการจ้องตาเย็นชาของคุณ แท้จริงแล้วคือสัญญาณของ <strong>"เคะซึนเดเระ"</strong> ที่เรียกร้องความสนใจ<br>
-            • การพยายามซ่อมยานอวกาศหรือกระชากคอเสื้อคนอื่น แท้จริงคือสัญชาตญาณของ <strong>"เคะราชินี (Queen Uke)"</strong> ที่ชอบใช้อำนาจสั่งการเพราะอยากให้คนมากราบกรานและรุมล้อมดูแล<br>
-            • ยิ่งข้อสุดท้ายที่คุณเลือก... มันชัดเจนมากว่า DNA ของคุณมันร่ำร้องต้องการ 'ผู้ปกป้อง' และ 'คนตามใจ'<br><br>
-            <strong>สรุป:</strong> เลิกหลอกตัวเองได้แล้วน้า~ คุณน่ะเป็น <strong>"เคะบริสุทธิ์ร้อยเปอร์เซ็นต์"</strong> ที่เกิดมาเพื่อโดนโอ๋ โดนแกล้ง และเป็นฝ่ายถูกปกป้องอย่างสมบูรณ์แบบ ยอมรับชะตากรรมซะเถอะ!
+            <strong>บทสรุปการประเมินจากพฤติกรรมทั้ง 10 ข้อ:</strong><br><br>
+            ผ่านไป 10 ข้ออันยาวนาน... ผลลัพธ์ก็ยังคงเดิมอย่างเป็นเอกฉันท์! เลิกพยายามตอบช้อยส์ที่ดูถ่อยหรือดูแมนเพื่อโกงระบบได้แล้วครับ เพราะทุกสัญชาตญาณของคุณมันฟ้องหมดแล้ว!<br><br>
+            • ช้อยส์ประเภท <strong>"โวยวาย / ทุบโต๊ะ / สู้คน"</strong> (ข้อหมูกระทะ, นักเลง, ต่อยกำแพง) : พฤติกรรมเหวี่ยงวีนขู่ฟ่อ ๆ เหมือนแมวขู่แบบนี้ มันคือคำนิยามสำเร็จรูปของ <strong>"เคะซึนเดเระ (Tsundere Uke)"</strong> ชัด ๆ! ดุบังหน้าแต่ลึก ๆ อ่อนไหวจนน่าแกล้ง<br>
+            • ช้อยส์ประเภท <strong>"เชิดใส่ / เล่นตัว / สั่งการ"</strong> (ข้อสัญญาทาส, ซื้อเสื้อใหม่ให้) : ความดื้อดึงอยากเอาชนะแบบนี้แหละคือพลังงานของ <strong>"เคะราชินี (Queen Uke)"</strong> ที่ชอบทำทรงเหนือกว่า แต่สุดท้ายก็แพ้ทางคนมาเอาใจอยู่ดี<br>
+            • ช้อยส์ประเภท <strong>"ง่อยเปลี้ย / ร้องไห้ / วิ่งชนเสาไฟ"</strong> (ข้อแกล้งตาย, ร้องไห้ในลิฟต์) : อันนี้ไม่ต้องอธิบายอะไรเพิ่ม คุณคือ <strong>"เคะธรรมชาติ (Pure Uke)"</strong> ชนิดเข้มข้นเด็ดขาด<br><br>
+            <strong>สรุปท้ายสุด:</strong> ยินดีด้วย คุณคือ <strong>ฝ่ายรับโดยสมบูรณ์แบบ</strong> เป็นคนเด๋อด๋าผู้น่าเอ็นดูที่เกิดมาเพื่อโดนโอ๋ โดนสปอยล์ และโดนแกล้งให้หน้าแดงเล่น ยอมรับชะตากรรมนี้แล้วใช้ชีวิตให้มีความสุขเถอะนะ!
         `;
         
         resultScreen.classList.add('active');
